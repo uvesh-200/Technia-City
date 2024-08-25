@@ -11,7 +11,9 @@ const Searchpage = () => {
   useEffect(() => {
     // if (text) {
     axios
-      .get("http://localhost:1234/api/search", { params: { text: text } })
+      .get("https://technia-city-backend.onrender.com/api/search", {
+        params: { text: text },
+      })
       .then((resp) => {
         setResult(resp.data);
       });
@@ -56,7 +58,8 @@ const Searchpage = () => {
                           >
                             <source
                               src={
-                                "http://localhost:1234/public/" + video.v_video
+                                "https://technia-city-backend.onrender.com/public/" +
+                                video.v_video
                               }
                               type="video/mp4"
                             />

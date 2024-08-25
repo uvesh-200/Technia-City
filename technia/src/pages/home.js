@@ -136,15 +136,19 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:1234/api/viewvideo").then((res) => {
-      setVid(res.data);
-      //  alert(res.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/viewvideo")
+      .then((res) => {
+        setVid(res.data);
+        //  alert(res.data);
+      });
 
-    axios.get("http://localhost:1234/api/latestvideo").then((res) => {
-      setLatest(res.data);
-      //  alert(res.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/latestvideo")
+      .then((res) => {
+        setLatest(res.data);
+        //  alert(res.data);
+      });
   }, []);
   const settings = {
     infinite: true,
@@ -195,7 +199,7 @@ function Home() {
                             maxHeight: "600px",
                             position: "absolute",
                           }}
-                          src={"http://localhost:1234/public/" + val.v_video}
+                          src={"https://technia-city-backend.onrender.com/public/" + val.v_video}
                           type="video/mp4"
                         />
                       </video> */}
@@ -235,7 +239,7 @@ function Home() {
                             maxHeight: "600px",
                             position: "absolute",
                           }}
-                          src={"http://localhost:1234/public/" + val.v_video}
+                          src={"https://technia-city-backend.onrender.com/public/" + val.v_video}
                           type="video/mp4"
                         />
                       </video> */}
@@ -290,7 +294,10 @@ function Home() {
                       }}
                     >
                       <source
-                        src={"http://localhost:1234/public/" + item.v_video}
+                        src={
+                          "https://technia-city-backend.onrender.com/public/" +
+                          item.v_video
+                        }
                         type="video/mp4"
                       />
                     </video>
@@ -358,7 +365,7 @@ function Home() {
                                   >
                                     <source
                                       src={
-                                        "http://localhost:1234/public/" +
+                                        "https://technia-city-backend.onrender.com/public/" +
                                         val.v_video
                                       }
                                       type="video/mp4"

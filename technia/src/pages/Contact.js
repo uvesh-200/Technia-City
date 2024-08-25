@@ -18,7 +18,7 @@ function Contact() {
     // alert(cnmsg);
 
     const res = axios
-      .post("http://localhost:1234/api/contact", {
+      .post("https://technia-city-backend.onrender.com/api/contact", {
         Cnname: cnname,
         Cnemail: cnemail,
         Cnnumber: cnnumber,

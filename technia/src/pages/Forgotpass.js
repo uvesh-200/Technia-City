@@ -14,7 +14,7 @@ const Forgotpass = () => {
   const Forgot = (e) => {
     const email = document.getElementById("email").value;
     axios
-      .post("http://localhost:1234/api/forgotpass", {
+      .post("https://technia-city-backend.onrender.com/api/forgotpass", {
         Email: email,
       })
       .then((resp) => {

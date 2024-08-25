@@ -31,9 +31,12 @@ function Footer() {
       let name = user.name;
       let rid = user.id;
       axios
-        .post("http://localhost:1234/api/chatbotsubscribedcount", {
-          rid: rid,
-        })
+        .post(
+          "https://technia-city-backend.onrender.com/api/chatbotsubscribedcount",
+          {
+            rid: rid,
+          }
+        )
         .then((res) => {
           setCount(res.data.count[0].count);
           setValue(res.data.value);
@@ -51,7 +54,7 @@ function Footer() {
     let msg = document.createElement("div");
     if (input != "") {
       axios
-        .get("http://localhost:1234/api/chatbot", {
+        .get("https://technia-city-backend.onrender.com/api/chatbot", {
           params: { input: input },
         })
         .then((res) => {
@@ -70,7 +73,9 @@ function Footer() {
 
             conversation.appendChild(msg);
             axios
-              .post("http://localhost:1234/api/newinput", { newinput: input })
+              .post("https://technia-city-backend.onrender.com/api/newinput", {
+                newinput: input,
+              })
               .then((res) => {});
             msg = document.createElement("div");
             msg.classList.add("chatbot-message", "chatbot");

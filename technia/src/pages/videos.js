@@ -18,7 +18,9 @@ function Videos() {
       const user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       const id = user.id;
       axios
-        .get("http://localhost:1234/api/getsubscibed", { params: { id: id } })
+        .get("https://technia-city-backend.onrender.com/api/getsubscibed", {
+          params: { id: id },
+        })
         .then((res) => {
           setHistory(res.data);
           // console.log(res.data);
@@ -26,10 +28,12 @@ function Videos() {
     }
   }, []);
   useEffect(() => {
-    axios.get("http://localhost:1234/api/likecount").then((res) => {
-      setCount(res.data);
-      console.log(res.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/likecount")
+      .then((res) => {
+        setCount(res.data);
+        console.log(res.data);
+      });
   }, [count]);
   const datas = history.map((val) => val.v_id);
   // console.log(datas);
@@ -44,7 +48,10 @@ function Videos() {
       let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       let rid = user.id;
       axios
-        .post("http://localhost:1234/api/like", { rid: rid, id: id })
+        .post("https://technia-city-backend.onrender.com/api/like", {
+          rid: rid,
+          id: id,
+        })
         .then((res) => {
           if (res.data.message) {
             toast.error(res.data.message);
@@ -67,7 +74,10 @@ function Videos() {
       let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       let rid = user.id;
       axios
-        .post("http://localhost:1234/api/watchlater", { vid: vid, rid: rid })
+        .post("https://technia-city-backend.onrender.com/api/watchlater", {
+          vid: vid,
+          rid: rid,
+        })
         .then((res) => {
           if (res.data.message) {
             toast.error(res.data.message);
@@ -95,7 +105,10 @@ function Videos() {
       const user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       const rid = user.id;
       axios
-        .post("http://localhost:1234/api/history", { id: id, rid: rid })
+        .post("https://technia-city-backend.onrender.com/api/history", {
+          id: id,
+          rid: rid,
+        })
         .then(() => {});
       setShowad(false);
       setSkipad(true);
@@ -106,7 +119,7 @@ function Videos() {
   };
 
   // useEffect(() => {
-  //   // axios.get("http://localhost:1234/api/viewvideo").then((res) => {
+  //   // axios.get("https://technia-city-backend.onrender.com/api/viewvideo").then((res) => {
   //   //   setVid(res.data);
   //   //   //  alert(res.data);
   //   // });
@@ -123,7 +136,10 @@ function Videos() {
       const user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       const rid = user.id;
       axios
-        .post("http://localhost:1234/api/history", { id: id, rid: rid })
+        .post("https://technia-city-backend.onrender.com/api/history", {
+          id: id,
+          rid: rid,
+        })
         .then(() => {});
       setShowad(false);
     } else {
@@ -143,7 +159,7 @@ function Videos() {
       let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       let id = user.id;
       axios
-        .get("http://localhost:1234/api/suggest", {
+        .get("https://technia-city-backend.onrender.com/api/suggest", {
           params: {
             id: id,
           },
@@ -153,17 +169,19 @@ function Videos() {
           // console.log(res.data);
         });
     } else {
-      axios.get("http://localhost:1234/api/viewvideo").then((res) => {
-        setCatid(res.data);
-        //  alert(res.data);
-      });
+      axios
+        .get("https://technia-city-backend.onrender.com/api/viewvideo")
+        .then((res) => {
+          setCatid(res.data);
+          //  alert(res.data);
+        });
     }
   }, []);
   const arys = catid.map((val) => val.cat_id);
   // console.log(arys);
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/suggestVideos", {
+      .get("https://technia-city-backend.onrender.com/api/suggestVideos", {
         params: {
           catid: arys,
         },
@@ -232,8 +250,9 @@ function Videos() {
                                 onEnded={() => adend(video.v_id)}
                                 src={
                                   showad
-                                    ? "http://localhost:1234/public/ad.mp4"
-                                    : "http://localhost:1234/public/" + vid
+                                    ? "https://technia-city-backend.onrender.com/public/ad.mp4"
+                                    : "https://technia-city-backend.onrender.com/public/" +
+                                      vid
                                 }
                               ></video>
                               {showad ? (
@@ -253,7 +272,7 @@ function Videos() {
                             >
                               <source
                                 src={
-                                  "http://localhost:1234/public/" +
+                                  "https://technia-city-backend.onrender.com/public/" +
                                   video.v_video
                                 }
                               />
@@ -342,8 +361,9 @@ function Videos() {
                                 }}
                                 src={
                                   showad
-                                    ? "http://localhost:1234/public/ad.mp4"
-                                    : "http://localhost:1234/public/" + vid
+                                    ? "https://technia-city-backend.onrender.com/public/ad.mp4"
+                                    : "https://technia-city-backend.onrender.com/public/" +
+                                      vid
                                 }
                               ></video>
                               {showad ? <p onClick={Skipad}>skip ad</p> : ""}
@@ -357,7 +377,7 @@ function Videos() {
                             >
                               <source
                                 src={
-                                  "http://localhost:1234/public/" +
+                                  "https://technia-city-backend.onrender.com/public/" +
                                   video.v_video
                                 }
                               />

@@ -43,7 +43,7 @@ const Videodetails = () => {
       },
       handler: function (response) {
         axios
-          .post("http://localhost:1234/api/subscribe", {
+          .post("https://technia-city-backend.onrender.com/api/subscribe", {
             Amt: amt,
             vid: vid,
             rid: rid,
@@ -72,7 +72,9 @@ const Videodetails = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/videodetails", { params: { id: id } })
+      .get("https://technia-city-backend.onrender.com/api/videodetails", {
+        params: { id: id },
+      })
       .then((res) => {
         let obj = {
           vid: res.data[0].v_id,

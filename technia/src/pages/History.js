@@ -11,7 +11,7 @@ function History() {
       let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       let rid = user.id;
       axios
-        .get("http://localhost:1234/api/historyvideos", {
+        .get("https://technia-city-backend.onrender.com/api/historyvideos", {
           params: { rid: rid },
         })
         .then((res) => {
@@ -30,10 +30,13 @@ function History() {
     let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
     let rid = user.id;
     axios
-      .post("http://localhost:1234/api/removehistoryvideos", {
-        id: id,
-        rid: rid,
-      })
+      .post(
+        "https://technia-city-backend.onrender.com/api/removehistoryvideos",
+        {
+          id: id,
+          rid: rid,
+        }
+      )
       .then((res) => {
         if (res) {
           toast.success("successfully removed");
@@ -81,7 +84,8 @@ function History() {
                         >
                           <source
                             src={
-                              "http://localhost:1234/public/" + values.v_video
+                              "https://technia-city-backend.onrender.com/public/" +
+                              values.v_video
                             }
                             type="video/mp4"
                           />

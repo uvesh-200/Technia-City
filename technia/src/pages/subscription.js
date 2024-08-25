@@ -15,7 +15,7 @@ function Subscription() {
 
     const id = user.id;
     axios
-      .get("http://localhost:1234/api/subscriptionvideos", {
+      .get("https://technia-city-backend.onrender.com/api/subscriptionvideos", {
         params: { id: id },
         headers: {
           Authorization: `Bearer ${token}`,
@@ -32,7 +32,9 @@ function Subscription() {
     alert(id);
     alert(sid);
     axios
-      .get("http://localhost:1234/api/videodetails", { params: { id: id } })
+      .get("https://technia-city-backend.onrender.com/api/videodetails", {
+        params: { id: id },
+      })
       .then((res) => {
         console.log(res.data);
         let obj = {
@@ -65,7 +67,7 @@ function Subscription() {
       },
       handler: function (response) {
         axios
-          .post("http://localhost:1234/api/resubscribe", {
+          .post("https://technia-city-backend.onrender.com/api/resubscribe", {
             sid: sid,
             days: days,
             amt: amt,
@@ -91,7 +93,7 @@ function Subscription() {
     rzp1.open();
   };
   //   axios
-  //     .post("http://localhost:1234/api/resubscribe", {
+  //     .post("https://technia-city-backend.onrender.com/api/resubscribe", {
   //       email: email,
   //     })
   //     .then((res) => {});
@@ -135,7 +137,7 @@ function Subscription() {
                             >
                               <source
                                 src={
-                                  "http://localhost:1234/public/" +
+                                  "https://technia-city-backend.onrender.com/public/" +
                                   values.v_video
                                 }
                                 type="video/mp4"
@@ -160,7 +162,8 @@ function Subscription() {
                           >
                             <source
                               src={
-                                "http://localhost:1234/public/" + values.v_video
+                                "https://technia-city-backend.onrender.com/public/" +
+                                values.v_video
                               }
                               type="video/mp4"
                             />

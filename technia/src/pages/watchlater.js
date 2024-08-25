@@ -12,7 +12,7 @@ function Watchlater() {
       let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
       let rid = user.id;
       axios
-        .get("http://localhost:1234/api/watchlatervideos", {
+        .get("https://technia-city-backend.onrender.com/api/watchlatervideos", {
           params: { rid: rid },
         })
         .then((res) => {
@@ -31,10 +31,13 @@ function Watchlater() {
     let user = JSON.parse(sessionStorage.getItem("tbl_u_reg"));
     let rid = user.id;
     axios
-      .post("http://localhost:1234/api/removewatchlatervideos", {
-        id: id,
-        rid: rid,
-      })
+      .post(
+        "https://technia-city-backend.onrender.com/api/removewatchlatervideos",
+        {
+          id: id,
+          rid: rid,
+        }
+      )
       .then((res) => {
         if (res) {
           toast.success("successfully removed");
@@ -82,7 +85,8 @@ function Watchlater() {
                         >
                           <source
                             src={
-                              "http://localhost:1234/public/" + values.v_video
+                              "https://technia-city-backend.onrender.com/public/" +
+                              values.v_video
                             }
                             type="video/mp4"
                           />

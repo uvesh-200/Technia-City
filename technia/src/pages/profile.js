@@ -20,7 +20,9 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/profile", { params: { Id: id } })
+      .get("https://technia-city-backend.onrender.com/api/profile", {
+        params: { Id: id },
+      })
       .then((response) => {
         let obj = {
           id: response.data[0].r_id,
@@ -55,7 +57,7 @@ function Profile() {
       toast.error("Confirm password doesn't match");
     } else {
       axios
-        .post("http://localhost:1234/api/updatepassword", {
+        .post("https://technia-city-backend.onrender.com/api/updatepassword", {
           Newpass: newpass,
           id: id,
         })

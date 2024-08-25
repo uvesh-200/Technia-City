@@ -39,7 +39,7 @@ function Login() {
     const result = fnum + snum;
 
     axios
-      .post("http://localhost:1234/api/login", {
+      .post("https://technia-city-backend.onrender.com/api/login", {
         LEmail: email,
         LPassword: password,
       })

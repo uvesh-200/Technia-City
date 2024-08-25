@@ -19,7 +19,7 @@ function Register() {
     setSnum(Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 
     axios
-      .get("http://localhost:1234/api/registeredemails")
+      .get("https://technia-city-backend.onrender.com/api/registeredemails")
       .then((res) => setMail(res.data));
   }, []);
   const mails = mail.map((val) => val.r_email);
@@ -48,7 +48,7 @@ function Register() {
       toast.error("sorry, this email is already registered with us");
     } else {
       const res = axios
-        .post("http://localhost:1234/api/registration", {
+        .post("https://technia-city-backend.onrender.com/api/registration", {
           Name: name,
           Number: number,
           Dob: dob,
