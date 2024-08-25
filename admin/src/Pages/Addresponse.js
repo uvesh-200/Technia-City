@@ -16,7 +16,7 @@ const Addresponse = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/chatbotquestions")
+      .get("https://technia-city-backend.onrender.com/api/chatbotquestions")
       .then((res) => setRes(res.data));
   }, []);
 
@@ -29,7 +29,7 @@ const Addresponse = () => {
           label: "Yes",
           onClick: () => {
             const response = axios.post(
-              "http://localhost:1234/api/deleteques",
+              "https://technia-city-backend.onrender.com/api/deleteques",
               {
                 id: id,
               }
@@ -51,13 +51,15 @@ const Addresponse = () => {
 
   const Edit = (id) => {
     axios
-      .post("http://localhost:1234/api/editresponse", { id: id })
+      .post("https://technia-city-backend.onrender.com/api/editresponse", {
+        id: id,
+      })
       .then((res) => setData(res.data));
   };
 
   const Update = (id) => {
     axios
-      .post("http://localhost:1234/api/updateresponse", {
+      .post("https://technia-city-backend.onrender.com/api/updateresponse", {
         id: id,
         response: response,
       })

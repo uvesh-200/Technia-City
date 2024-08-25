@@ -9,7 +9,7 @@ function Catform() {
     // alert(category);
 
     axios
-      .post("http://localhost:1234/api/category", {
+      .post("https://technia-city-backend.onrender.com/api/category", {
         Category: category,
       })
       .then((rsp) => {

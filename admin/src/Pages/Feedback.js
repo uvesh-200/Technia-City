@@ -11,9 +11,11 @@ const Feedback = () => {
   const [view, setView] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:1234/api/feedback").then((resp) => {
-      setData(resp.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/feedback")
+      .then((resp) => {
+        setData(resp.data);
+      });
   }, []);
 
   const closemodal = () => {
@@ -22,7 +24,9 @@ const Feedback = () => {
 
   const View = (id) => {
     axios
-      .get("http://localhost:1234/api/viewfeedback", { params: { id: id } })
+      .get("https://technia-city-backend.onrender.com/api/viewfeedback", {
+        params: { id: id },
+      })
       .then((resp) => {
         setView(resp.data);
       });
@@ -37,7 +41,7 @@ const Feedback = () => {
           label: "Yes",
           onClick: () => {
             const response = axios.post(
-              "http://localhost:1234/api/deletefeedback",
+              "https://technia-city-backend.onrender.com/api/deletefeedback",
               {
                 id: id,
               }

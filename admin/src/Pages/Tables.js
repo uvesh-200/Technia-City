@@ -16,7 +16,7 @@ function Tables() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/viewcat")
+      .get("https://technia-city-backend.onrender.com/api/viewcat")
       .then((res) => setCat(res.data));
   }, []);
 
@@ -28,9 +28,12 @@ function Tables() {
         {
           label: "Yes",
           onClick: () => {
-            const response = axios.post("http://localhost:1234/api/deletecat", {
-              id: id,
-            });
+            const response = axios.post(
+              "https://technia-city-backend.onrender.com/api/deletecat",
+              {
+                id: id,
+              }
+            );
             if (response) {
               toast.success("Category Deleted Successfully");
               setTimeout(() => {
@@ -47,9 +50,13 @@ function Tables() {
   };
 
   const Edit = (id) => {
-    axios.post("http://localhost:1234/api/editcat", { id: id }).then((resp) => {
-      setEdits(resp.data);
-    }, []);
+    axios
+      .post("https://technia-city-backend.onrender.com/api/editcat", {
+        id: id,
+      })
+      .then((resp) => {
+        setEdits(resp.data);
+      }, []);
   };
 
   const Update = (id) => {
@@ -57,7 +64,7 @@ function Tables() {
     // const catid = document.getElementById("cid").value;
     // alert(catname);
     axios
-      .post("http://localhost:1234/api/updatecat", {
+      .post("https://technia-city-backend.onrender.com/api/updatecat", {
         id: id,
         Catname: catname,
       })

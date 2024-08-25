@@ -11,12 +11,14 @@ const Subvideos = () => {
     const shs = document.getElementById("shs").value;
     // alert(shs)
     if (shs === "") {
-      axios.get("http://localhost:1234/api/subscribevideos").then((resp) => {
-        setvideo(resp.data);
-      });
+      axios
+        .get("https://technia-city-backend.onrender.com/api/subscribevideos")
+        .then((resp) => {
+          setvideo(resp.data);
+        });
     } else {
       axios
-        .get("http://localhost:1234/api/subvideosearch", {
+        .get("https://technia-city-backend.onrender.com/api/subvideosearch", {
           params: { searches: search },
         })
         .then((resp) => {
@@ -71,7 +73,10 @@ const Subvideos = () => {
                     >
                       <source
                         class="mb-3"
-                        src={"http://localhost:1234/public/" + val.v_video}
+                        src={
+                          "https://technia-city-backend.onrender.com/public/" +
+                          val.v_video
+                        }
                       />
                     </video>
                     <td>{new Date(val.sub_end).toDateString()}</td>
@@ -91,7 +96,10 @@ const Subvideos = () => {
                     >
                       <source
                         class="mb-3"
-                        src={"http://localhost:1234/public/" + val.v_video}
+                        src={
+                          "https://technia-city-backend.onrender.com/public/" +
+                          val.v_video
+                        }
                       />
                     </video>
                     <td>{new Date(val.sub_end).toDateString()}</td>

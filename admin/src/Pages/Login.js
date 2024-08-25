@@ -11,7 +11,7 @@ function Login() {
     const password = document.getElementById("password").value;
 
     axios
-      .post("http://localhost:1234/api/adminlogin", {
+      .post("https://technia-city-backend.onrender.com/api/adminlogin", {
         Email: email,
         Password: password,
       })

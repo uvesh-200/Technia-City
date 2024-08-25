@@ -10,7 +10,7 @@ function Form() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/viewcat")
+      .get("https://technia-city-backend.onrender.com/api/viewcat")
       .then((resp) => setCat(resp.data));
   }, []);
 
@@ -39,9 +39,13 @@ function Form() {
     formdata.append("Type", type);
 
     axios
-      .post("http://localhost:1234/api/addvideo", formdata, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
+      .post(
+        "https://technia-city-backend.onrender.com/api/addvideo",
+        formdata,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
       .then((rsp) => {
         if (title === "") {
           toast.error("Please Enter all details");

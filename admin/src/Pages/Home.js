@@ -56,27 +56,37 @@ function Home() {
     },
   };
   useEffect(() => {
-    axios.get("http://localhost:1234/api/catcount").then((resp) => {
-      setCount(resp.data[0].count);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/catcount")
+      .then((resp) => {
+        setCount(resp.data[0].count);
+      });
 
-    axios.get("http://localhost:1234/api/vidcount").then((resp) => {
-      setVcount(resp.data[0].count);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/vidcount")
+      .then((resp) => {
+        setVcount(resp.data[0].count);
+      });
 
-    axios.get("http://localhost:1234/api/subscribevidcount").then((resp) => {
-      setSubvcount(resp.data[0].count);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/subscribevidcount")
+      .then((resp) => {
+        setSubvcount(resp.data[0].count);
+      });
 
-    axios.get("http://localhost:1234/api/piechart").then((res) => {
-      setVid(res.data);
-      console.log(res.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/piechart")
+      .then((res) => {
+        setVid(res.data);
+        console.log(res.data);
+      });
 
-    axios.get("http://localhost:1234/api/barchart").then((res) => {
-      setBar(res.data);
-      console.log(res.data);
-    });
+    axios
+      .get("https://technia-city-backend.onrender.com/api/barchart")
+      .then((res) => {
+        setBar(res.data);
+        console.log(res.data);
+      });
   }, []);
 
   useEffect(() => {

@@ -9,16 +9,19 @@ const Analytics = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/videotable")
+      .get("https://technia-city-backend.onrender.com/api/videotable")
       .then((res) => setCount(res.data));
   }, []);
 
   useEffect(() => {
     axios
-      .post("http://localhost:1234/api/analyticsvideocount", {
-        start: start,
-        end: end,
-      })
+      .post(
+        "https://technia-city-backend.onrender.com/api/analyticsvideocount",
+        {
+          start: start,
+          end: end,
+        }
+      )
       .then((res) => {
         console.log(res.count);
         setCount(res.data);
@@ -76,7 +79,10 @@ const Analytics = () => {
                     >
                       <source
                         class="mb-3"
-                        src={"http://localhost:1234/public/" + data.v_video}
+                        src={
+                          "https://technia-city-backend.onrender.com/public/" +
+                          data.v_video
+                        }
                       />
                     </video>
                     <td>{data.count}</td>

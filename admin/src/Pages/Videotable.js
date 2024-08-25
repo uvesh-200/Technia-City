@@ -17,7 +17,7 @@ function Videotable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1234/api/videotable")
+      .get("https://technia-city-backend.onrender.com/api/videotable")
       .then((res) => setVtab(res.data));
   }, []);
 
@@ -29,9 +29,12 @@ function Videotable() {
         {
           label: "Yes",
           onClick: () => {
-            const response = axios.post("http://localhost:1234/api/deletevid", {
-              id: id,
-            });
+            const response = axios.post(
+              "https://technia-city-backend.onrender.com/api/deletevid",
+              {
+                id: id,
+              }
+            );
             if (response) {
               toast.success("Video Deleted Successfully");
               setTimeout(() => {
@@ -48,9 +51,13 @@ function Videotable() {
   };
 
   const Edit = (id) => {
-    axios.post("http://localhost:1234/api/editvid", { id: id }).then((resp) => {
-      setEdits(resp.data);
-    });
+    axios
+      .post("https://technia-city-backend.onrender.com/api/editvid", {
+        id: id,
+      })
+      .then((resp) => {
+        setEdits(resp.data);
+      });
   };
 
   const closemodal = () => {
@@ -75,9 +82,13 @@ function Videotable() {
     formdata.append("types", types);
 
     axios
-      .post("http://localhost:1234/api/updatevideo", formdata, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
+      .post(
+        "https://technia-city-backend.onrender.com/api/updatevideo",
+        formdata,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
       .then((resp) => {
         toast.success("Video Updated Successfully");
         setTimeout(() => {
@@ -122,7 +133,10 @@ function Videotable() {
                 >
                   <source
                     class="mb-3"
-                    src={"http://localhost:1234/public/" + data.v_video}
+                    src={
+                      "https://technia-city-backend.onrender.com/public/" +
+                      data.v_video
+                    }
                   />
                 </video>
                 <td>
@@ -275,7 +289,7 @@ function Videotable() {
                               >
                                 <source
                                   src={
-                                    "http://localhost:1234/public/" +
+                                    "https://technia-city-backend.onrender.com/public/" +
                                     vals.v_video
                                   }
                                 />
