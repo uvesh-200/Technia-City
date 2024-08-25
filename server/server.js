@@ -21,10 +21,10 @@ app.use("/public", express.static("public"));
 const jwt_key = process.env.JWT_KEY;
 
 const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "technia",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DBNAME,
 });
 
 const storage = multer.diskStorage({
